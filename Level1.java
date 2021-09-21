@@ -35,7 +35,7 @@ public class Level1 extends World
      * That is: create the initial objects and add them to the world.
      */
     {
-        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class
-    , Door.class, HUD.class);
+        setPaintOrder(Player.class, Platform.class, Obstacle.class,  
+                      Collectable.class, Door.class, HUD.class);
     }
 }
