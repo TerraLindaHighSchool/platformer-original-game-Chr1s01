@@ -25,6 +25,8 @@ public class Level1 extends World
      */
     private void prepare()
     {
+        setPaintOrder(Player.class, Platform.class, Obstacle.class, 
+            Collectable.class, Door.class, HUD.class);
         Door door = new Door();
         addObject(door,1171,44);
         Player player = new Player();
@@ -38,9 +40,9 @@ public class Level1 extends World
         addObject(new SmBrickWall(), 420, 160);
         addObject(new SmBrickWall(), 1000, 200);
         addObject(new SmBrickWall(), 220, 280);
-        addObject(new TrapDoor(), 60, 400);
-        addObject(new TrapDoor(), 465, 115);
-        addObject(new Bomb(), 1050, 765);
+        addObject(new TrapDoor(), 1000, 600);
+        addObject(new Bomb(), 455,114);
+        addObject(new Bomb(), 1160, 544);
         addObject(new Gem(), 975, 160);
         addObject(new Gem(), 1030, 160);
 
@@ -50,7 +52,5 @@ public class Level1 extends World
      * That is: create the initial objects and add them to the world.
      */
     {
-        setPaintOrder(Player.class, Platform.class, Obstacle.class,  
-                      Collectable.class, Door.class, HUD.class);
     }
 }
