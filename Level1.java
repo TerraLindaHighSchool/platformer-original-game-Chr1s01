@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * @Chris Hubbell 
  * @version 9/16/21 v1.0
- */
+ */ 
 public class Level1 extends World
 {
     /**
@@ -26,9 +26,24 @@ public class Level1 extends World
     private void prepare()
     {
         Door door = new Door();
-        addObject(door,1162,64);
+        addObject(door,1171,44);
         Player player = new Player();
-        addObject(player,49,735);
+        addObject(player,96,750);
+        addObject(new Floor(), 600, 800);
+        addObject(new BrickWall(), 380, 500);
+        addObject(new BrickWall(), 780, 300);
+        addObject(new BrickWall(), 960, 100);
+        addObject(new SmBrickWall(), 1120, 600);
+        addObject(new SmBrickWall(), 880, 600);
+        addObject(new SmBrickWall(), 420, 160);
+        addObject(new SmBrickWall(), 1000, 200);
+        addObject(new SmBrickWall(), 220, 280);
+        addObject(new TrapDoor(), 60, 400);
+        addObject(new TrapDoor(), 465, 115);
+        addObject(new Bomb(), 1050, 765);
+        addObject(new Gem(), 975, 160);
+        addObject(new Gem(), 1030, 160);
+
     }
     /**
      * Prepare the world for the start of the program.
