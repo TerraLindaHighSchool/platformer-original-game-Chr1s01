@@ -8,12 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TrapDoor extends Obstacle
 {
-    /**
-     * Act - do whatever the TrapDoor wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    private float yVelocity;
+    private final float GRAVITY;
+    
+    private TrapDoor(float gravity)
     {
-        // Add your action code here.
+        GRAVITY = gravity;
     }
+    
+    public void act()
+    {}
+    
+    protected void fall()
+    {}
 }

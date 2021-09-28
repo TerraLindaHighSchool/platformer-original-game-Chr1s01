@@ -1,28 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BrickWorld here.
- * 
  * @Chris Hubbell 
- * @version 9/16/21 v1.0
- */ 
+ * @version 9/28/21 v1.3.6
+ */
 public class Level1 extends World
 {
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3"
+    );
     /**
-     * Constructor for objects of class BrickWorld.
-     * 
      */
     public Level1()
-    {    
-        // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
-        super(1200, 800, 1, false); 
+    {
+        super(1200, 800, 1, false);
         prepare();
     }
     
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
+    public void act()
+    {
+        spawn();
+    }
+    
     private void prepare()
     {
         setPaintOrder(Player.class, Platform.class, Obstacle.class, 
@@ -40,17 +39,20 @@ public class Level1 extends World
         addObject(new SmBrickWall(), 420, 160);
         addObject(new SmBrickWall(), 1000, 200);
         addObject(new SmBrickWall(), 220, 280);
-        addObject(new TrapDoor(), 1000, 600);
-        addObject(new Bomb(), 455,114);
-        addObject(new Bomb(), 1160, 544);
+        addObject(new TrapDoor(GRAVITY), 60, 400);
+        addObject(new TrapDoor(GRAVITY), 1000, 600);
+        addObject(new Bomb(GRAVITY), 455,114);
+        addObject(new Bomb(GRAVITY), 1160, 544);
         addObject(new Gem(), 975, 160);
         addObject(new Gem(), 1030, 160);
 
     }
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
+    
+    private void spawn()
     {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
     }
 }
