@@ -11,7 +11,7 @@ public class Rock extends Obstacle
     private float yVelocity;
     private final float GRAVITY;
     
-    private Rock(float gravity)
+    public Rock(float gravity)
     {
         GRAVITY = gravity;
     }

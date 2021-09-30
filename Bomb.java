@@ -11,7 +11,7 @@ public class Bomb extends Obstacle
     private float yVelocity;
     private final float GRAVITY;
     
-    private Bomb(float gravity)
+    public Bomb(float gravity)
     {
         GRAVITY = gravity;
     }
