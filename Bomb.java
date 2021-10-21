@@ -23,7 +23,10 @@ public class Bomb extends Obstacle
     
     protected void fall()
     {
-        yVelocity += GRAVITY;
-        setLocation(getX(), getY() + (int) yVelocity);
+        if(!isOnGround())
+        {
+            yVelocity += GRAVITY;
+            setLocation(getX(), getY() + (int) yVelocity);
+        }
     }
 }

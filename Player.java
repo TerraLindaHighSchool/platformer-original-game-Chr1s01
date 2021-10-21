@@ -43,12 +43,6 @@ public class Player extends Actor
                           new GreenfootImage("walk4.png"),
                           new GreenfootImage("walk5.png")
                         };
-                         
-    for(int i = 1; i <= 9; i++)
-    {
-        sum += i;
-    }
-    System.out.println(sum);
     }
     
     public void act()
