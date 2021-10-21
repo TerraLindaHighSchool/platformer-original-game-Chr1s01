@@ -153,7 +153,7 @@ public class Player extends Actor
     private void onCollision() 
     {
         removeTouching(Obstacle.class);
-        getWorld().removeObject)health[healthCount - 1]);
+        getWorld().removeObject.health)healthCount - 1]);
         healthCount--;
     }
     
