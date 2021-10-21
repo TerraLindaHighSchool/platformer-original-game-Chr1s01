@@ -9,6 +9,7 @@ public class Player extends Actor
     private int speed;
     private int walkIndex;
     private int frame;
+    private int healthCount;
     private float yVelocity;
     private boolean isWalking;
     private boolean isJumping;
@@ -20,6 +21,7 @@ public class Player extends Actor
     private final Class NEXT_LEVEL;
     private final GreenfootSound MUSIC;
     int sum = 0;
+    
     public Player(int speed, float jumpForce, float gravity, int maxHealth,
                   int maxPowerUp, Class nextLevel, GreenfootSound music)
     {
@@ -30,7 +32,7 @@ public class Player extends Actor
         MUSIC = music;
         
         healthCount = maxHealth;
-        heath = new Health[maxHealth];
+        health = new Health[maxHealth];
         
         STANDING_IMAGE = getImage();
         WALK_ANIMATION =  new GreenfootImage[]
@@ -150,13 +152,6 @@ public class Player extends Actor
         frame++;
     }
     
-    private void onCollision() 
-    {
-        removeTouching(Obstacle.class);
-        getWorld().removeObject.health)healthCount - 1]);
-        healthCount--;
-    }
-    
     private void mirrorImages() 
     {
         for(int i = 0; i < WALK_ANIMATION.length; i++)
@@ -167,7 +162,7 @@ public class Player extends Actor
     
     private void gameOver()
     {
-        if(HealthCount == 0)
+        if(healthCount == 0)
         {
             Greenfoot.setWorld(new Level1());
         }
@@ -180,29 +175,31 @@ public class Player extends Actor
         return ground != null;
     }
             
-private void onCollision()
-{
-    if(isTouching(Door.class))
+    private void onCollision()
     {
-        World world = null;
-        try 
+        if(isTouching(Door.class))
         {
-            world = (World) NEXT_LEVEL.newInstance();
-        }   
-        catch (InstantiationException e) {
-        {
-            System.out.println("Class cannot be instantiated");
+            World world = null;
+            try 
+            {
+                world = (World) NEXT_LEVEL.newInstance();
+            }   
+            catch (InstantiationException e) 
+            {
+                System.out.println("Class cannot be instantiated");
+            }
+            catch (IllegalAccessException e) 
+            {
+                System.out.println("Cannot access class constructor");
+            } 
+            Greenfoot.setWorld(world);
         }
-        catch (IllegalAccessException e) 
+        
+        if(isTouching(Obstacle.class))
         {
-            System.out.println("Cannot access class constructor");
-        } 
-        Greenfoot.setWorld(world);
+            removeTouching(Obstacle.class);
+            getWorld().removeObject(health[healthCount - 1]);
+            healthCount--;
+        }
     }
-    
-    if(isTouching(Obstacle.class))
-    {
-        removeTouching(Obstacle.class);
-    }
-}
 }

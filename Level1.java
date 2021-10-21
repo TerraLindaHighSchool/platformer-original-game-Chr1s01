@@ -46,6 +46,8 @@ public class Level1 extends World
         addObject(new Gem(), 975, 160);
         addObject(new Gem(), 1030, 160);
 
+        player.setLocation(84,686);
+        player.setLocation(83,705);
     }
     
     private void spawn()
