@@ -189,11 +189,26 @@ public class Player extends Actor
             Greenfoot.setWorld(world);
         }
         
+        if(isTouching(Platform.class) && !isOnGround())
+        {
+            yVelocity = -1;
+            fall();
+        }
+   
+        if(isTouching(Collectable.class) && healthCount < 3)
+        {
+            removeTouching(Collectable.class);
+            getWorld().addObject(health[2], 114, 36);
+            healthCount++;
+        }
+
         if(isTouching(Obstacle.class))
         {
             removeTouching(Obstacle.class);
             getWorld().removeObject(health[healthCount - 1]);
             healthCount--;
+            Greenfoot.playSound("explosionSmall.wav");
+            
         }
     }
 }

@@ -33,21 +33,22 @@ public class Level1 extends World
         addObject(new Floor(), 600, 800);
         addObject(new BrickWall(), 380, 500);
         addObject(new BrickWall(), 780, 300);
-        addObject(new BrickWall(), 960, 100);
         addObject(new SmBrickWall(), 1120, 600);
         addObject(new SmBrickWall(), 880, 600);
         addObject(new SmBrickWall(), 420, 160);
         addObject(new SmBrickWall(), 1000, 200);
         addObject(new SmBrickWall(), 220, 280);
-        addObject(new TrapDoor(GRAVITY), 60, 400);
+        addObject(new TrapDoor(GRAVITY), 217, 389);
         addObject(new TrapDoor(GRAVITY), 1000, 600);
         addObject(new Bomb(GRAVITY), 455,114);
         addObject(new Bomb(GRAVITY), 1160, 544);
-        addObject(new Gem(), 975, 160);
+        addObject(new Rock(GRAVITY), 549, 112);
+        addObject(new Gem(), 695, 252);
         addObject(new Gem(), 1030, 160);
-
-        player.setLocation(84,686);
-        player.setLocation(83,705);
+        player.setLocation(103,700);
+        addObject(new Gem(), 695,252);
+        Rock rock = new Rock(0.0667f);
+        addObject(rock,476,452);
     }
     
     private void spawn()
