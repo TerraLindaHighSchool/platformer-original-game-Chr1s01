@@ -33,9 +33,9 @@ public class Player extends Actor
         
         healthCount = maxHealth;
         health = new Health[maxHealth];
-        
-        STANDING_IMAGE = getImage();
-        WALK_ANIMATION =  new GreenfootImage[]
+        {
+            STANDING_IMAGE = getImage();
+            WALK_ANIMATION =  new GreenfootImage[]
                         { new GreenfootImage("walk0.png"),
                           new GreenfootImage("walk1.png"),
                           new GreenfootImage("walk2.png"),
@@ -43,6 +43,7 @@ public class Player extends Actor
                           new GreenfootImage("walk4.png"),
                           new GreenfootImage("walk5.png")
                         };
+        }
     }
     
     public void act()
@@ -80,13 +81,14 @@ public class Player extends Actor
         if(Greenfoot.isKeyDown("right"))
         {
             if(!MUSIC.isPlaying())
-            {
-                MUSIC.playLoop();
-            }
-            if(isFacingLeft)
-            {
-                mirrorImages();
-            }
+        {
+            MUSIC.playLoop();
+        }
+            
+        if(isFacingLeft)
+        {
+            mirrorImages();
+        }
             isWalking = true;
             isFacingLeft = false;
             move(speed);
@@ -159,6 +161,7 @@ public class Player extends Actor
         if(healthCount == 0)
         {
             Greenfoot.setWorld(new Level1());
+            MUSIC.stop();
         }
     }
     
@@ -199,6 +202,13 @@ public class Player extends Actor
         {
             removeTouching(Collectable.class);
             getWorld().addObject(health[2], 114, 36);
+            healthCount++;
+        }
+        
+        if(isTouching(Collectable.class) && healthCount < 2)
+        {
+            removeTouching(Collectable.class);
+            getWorld().addObject(health[1], 72, 36);
             healthCount++;
         }
 
